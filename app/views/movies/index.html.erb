@@ -1,0 +1,18 @@
+<h1>List of movies</h1>
+
+<div class="row">
+  <% @movies.each do |movie| %>
+    <% if movie.poster_url.present? %>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <%= link_to movie_path(movie) do %>
+          <%= image_tag movie.poster_url, class: "card-img-top", alt: movie.title %>
+          <div class="card-body">
+            <h5 class="card-title"><%= movie.title %></h5>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
